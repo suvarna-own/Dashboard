@@ -13,7 +13,11 @@ import {
 
 import { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
-import UserNames from "./UserNames";
+//import UserNames from "./UserNames";
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
+import { ThemeContext } from "../context/ThemeContext";
+
 
 
 export default function Dashboard() {
@@ -22,6 +26,8 @@ export default function Dashboard() {
     const [totalEmails, setTotalEmails] = useState(0);
     const [totalOpened, setTotalOpened] = useState(0);
     const [clickRate, setClickRate] = useState(0);
+    const { users } = useContext(UserContext);
+    const { theme } = useContext(ThemeContext);
 
     useEffect(() => {
         fetch("http://127.0.0.1:8000/analytics")
@@ -66,8 +72,15 @@ export default function Dashboard() {
             {/* Summary Cards */}
             <div className="grid md:grid-cols-3 gap-4 mb-6">
 
-                <div className="bg-white rounded-xl shadow p-4">
-                    <UserNames/>
+                <div className="bg-green-100 rounded-xl shadow p-4">
+                    {/* <p>{user.name} - {user.role}</p> */}
+                    <div>
+                        {users.map((user) => (
+                            <div key={user.id}>
+                                <p>{user.name} - {user.role}</p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 <div className="bg-white rounded-xl shadow p-6">
@@ -87,7 +100,7 @@ export default function Dashboard() {
                     <p className="text-3xl font-bold">{clickRate.toFixed(1)}%</p>
                 </div>
 
-                
+
 
             </div>
 
