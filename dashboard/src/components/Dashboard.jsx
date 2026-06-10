@@ -13,10 +13,10 @@ import {
 
 import { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
-//import UserNames from "./UserNames";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import { ThemeContext } from "../context/ThemeContext";
+import Counter from "./Counter";
 
 
 
@@ -73,7 +73,6 @@ export default function Dashboard() {
             <div className="grid md:grid-cols-3 gap-4 mb-6">
 
                 <div className="bg-green-100 rounded-xl shadow p-4">
-                    {/* <p>{user.name} - {user.role}</p> */}
                     <div>
                         {users.map((user) => (
                             <div key={user.id}>
@@ -81,6 +80,10 @@ export default function Dashboard() {
                             </div>
                         ))}
                     </div>
+                </div>
+
+                <div className="bg-green-100 rounded-xl shadow p-4">
+                   <Counter/>
                 </div>
 
                 <div className="bg-white rounded-xl shadow p-6">

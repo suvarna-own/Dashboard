@@ -1,10 +1,10 @@
-// import { Bell } from "lucide-react";
+import { Bell } from "lucide-react";
 
 function NotificationButton() {
   return (
     <button className="notification-btn">
-      {/* <Bell size={24} color="#333" strokeWidth={2} /> */}
-      <span>Notifications</span>
+      <Bell size={24} color="#ffffff" strokeWidth={2} />
+      {/* <span>Notifications</span> */}
     </button>
   );
 }

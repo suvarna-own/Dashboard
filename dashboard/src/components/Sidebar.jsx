@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MainContainer } from './MainContainer';
+
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(true);
@@ -47,10 +47,7 @@ export default function Sidebar() {
         </nav>
       </aside>
 
-      {/* Main Content View */}
-      <main className="flex-1 px-7 font-semibold text-2xl">
-       <MainContainer/>
-      </main>
+      
     </div>
   );
 }
